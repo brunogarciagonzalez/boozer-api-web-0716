@@ -26,9 +26,10 @@ module Api
         render json: cocktail_json
       end
 
-      # def create
-      #   byebug
-      # end
+      def create
+        Cocktail.create(name: params[:name], description: params[:description], instructions: params[:instructions], source: params[:source])
+        render json: Cocktail.all.order(id: :asc)
+      end
 
       def edit
 
